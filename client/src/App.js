@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   createBrowserRouter,
   Outlet,
@@ -10,7 +11,7 @@ import Home from "./pages/Home"
 import Single from "./pages/Single"
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { Children } from "react";
+import "./style.scss"
 
 const Layout = () => {
   return (

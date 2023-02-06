@@ -34,8 +34,9 @@ const Navbar = () => {
           <Link className='link' to="/?cat=food">
             <h6>FOOD</h6>
           </Link>
-
+          <Link className='link' to="/profile">
           <span>{currentUser?.username}</span>
+          </Link>
           {currentUser ? (
             <span onClick={logout}>Logout</span>
           ) : (

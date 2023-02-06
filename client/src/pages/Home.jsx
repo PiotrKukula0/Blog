@@ -18,38 +18,15 @@ const Home = () => {
     }
     fetchData()
   }, [cat])
-  // const posts = [
-  //   {
-  //     id:1,
-  //     title:"Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  //     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     img:"https://images.pexels.com/photos/7008010/pexels-photo-7008010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     img: "https://images.pexels.com/photos/6489663/pexels-photo-6489663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     img: "https://images.pexels.com/photos/4230630/pexels-photo-4230630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     img: "https://images.pexels.com/photos/6157049/pexels-photo-6157049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  //   },
-  // ];
 
   const getText = (html) =>{
     const doc = new DOMParser().parseFromString(html, "text/html")
     return doc.body.textContent
   }
-
+const getShortText = (text) => {
+  const shortText = text.substr(0, 500)
+  return text.length > 500 ? `${shortText}...` : text
+}
   return (
     <div className='home'>
       <div className='posts'>
@@ -62,8 +39,10 @@ const Home = () => {
               <Link className='link' to={`/post/${post.id}`}>
                 <h1>{post.title}</h1>
               </Link>
-              <p>{getText(post.description)}</p>
+              <p>{getShortText(getText(post.description))}</p>
+              <Link className='link' to={`/post/${post.id}`}>
               <button>Read more</button>
+              </Link>
             </div>
           </div>
         ))}

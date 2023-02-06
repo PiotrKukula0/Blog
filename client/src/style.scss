@@ -5,7 +5,7 @@ $lightGreen : #b9e7e7;
     justify-content: center;
 
     .container {
-        width: 1024px;
+        width: 1200px;
 
         .link {
             text-decoration: none;
@@ -145,7 +145,6 @@ $lightGreen : #b9e7e7;
                     .img {
                         flex: 2;
                         position: relative;
-
                         &::after {
                             content: "";
                             width: 100%;
@@ -177,6 +176,7 @@ $lightGreen : #b9e7e7;
 
                         p {
                             font-size: 18px;
+                            margin: 8px 8px 8px;
                         }
 
                         button {
